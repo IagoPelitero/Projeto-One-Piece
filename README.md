@@ -22,3 +22,5 @@ SASS, LESS, Stylus - Outras opções menos comuns - Casos específicos
 
 5 - Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)?
 (Tadução simplificada: Você quer habilitar Server-Side Rendering (SSR) e Static Site Generation (SSG)? O conteúdo da página é gerado no servidor antes de ser enviado ao navegador. Ou O Angular gera páginas estáticas durante o build. Como estou criando um projeto padrão, informei "n").
+
+6 - https://copilot.microsoft.com/shares/YgnZWGs5XYsDPoXBaJWWS
