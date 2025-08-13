@@ -1,69 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Senpai-Social | One Piece Edition</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
-  <audio id="pirate-sound" src="https://freesound.org/data/previews/341/341695_3248244-lq.mp3"></audio>
-
+  <title>Senpai Social</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="script.js"></script>
 </head>
 <body>
   <header>
-    <h1>☠️ Senpai-Social</h1>
+    <div class="logo">
+      <h1>🏴‍☠️ Senpai Social</h1>
+      <p>A rede dos verdadeiros nakamas</p>
+    </div>
     <nav>
-      <a href="#">Início</a>
-      <a href="#">Tripulação</a>
-      <a href="#">Entrar</a>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Tripulação</a></li>
+        <li><a href="#">Comunidade</a></li>
+        <li><a href="#">Entrar</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="carousel-section">
-  <h2>⚓ O que é isso aí cara de nerd?</h2>
-  <p class="intro">
-    Uma rede social é como uma tripulação: cada nakama compartilha histórias, ideias e ajuda uns aos outros a navegar pelo mar da informação ou compartilha alguma coisa legal com seus nakamas!
-  </p>
+  <main>
+    <section class="hero">
+      <h2>🌊 Junte-se à aventura com os Chapéus de Palha!</h2>
+      <p>Conecte-se com outros fãs de One Piece, compartilhe teorias, memes e momentos épicos do anime e mangá.</p>
+      <a href="#" class="btn">Comece sua jornada</a>
+    </section>
 
-  <div class="carousel">
-    <button class="nav left" onclick="prevSlide()">⟵</button>
-
-    <div class="slide" id="character-slide">
-      <!-- Conteúdo dinâmico será inserido aqui -->
+  <section class="crew-showcase">
+  <h2> <img src="./Senpai-Social/assets/thousand_sunny.jpg" alt="thousand_sunny" class="iMugiwara"> Tripulação dos Chapéus de Palha</h2>
+  <button class="carousel-btn prev">&#10094;</button>
+  <div class="crew-container">
+    <div class="crew-member">
+      <img src="./Senpai-Social/assets/Monkey_D._Luffy_Anime_Post_Timeskip_Infobox.jpg" class="mugiwara" alt="Luffy">
+      <h3>Monkey D. Luffy</h3>
+      <span>Capitão</span>
     </div>
-
-    <button class="nav right" onclick="nextSlide()">⟶</button>
+    <div class="crew-member">
+      <img src="./Senpai-Social/assets/Roronoa_Zoro_Anime_Post_Timeskip_Infobox.jpg" class="mugiwara" alt="Zoro">
+      <h3>Roronoa Zoro</h3>
+      <span>Espadachim</span>
+    </div>
+    <div class="crew-member">
+      <img src="./Senpai-Social/assets/Nami_Anime_Post_Timeskip_Infobox.jpg" class="mugiwara" alt="Nami">
+      <h3>Nami</h3>
+      <span>Navegadora</span>
+    </div>
+    <div class="crew-member">
+      <img src="./Senpai-Social/assets/Usopp_Anime_Post_Timeskip_Infobox.jpg" class="mugiwara" alt="Usopp">
+      <h3>Usopp</h3>
+      <span>Atirador</span>
+    </div>
+    <div class="crew-member">
+      <img src="./Senpai-Social/assets/Sanji_Anime_Post_Timeskip_Infobox.jpg" class="mugiwara" alt="Sanji">
+      <h3>Sanji</h3>
+      <span>Cozinheiro</span>
+    </div>
+    <div class="crew-member">
+      <img src="./Senpai-Social/assets/Tony_Tony_Chopper_Anime_Post_Timeskip_Infobox.jpg" class="mugiwara" alt="Chopper">
+      <h3>Tony Tony Chopper</h3>
+      <span>Médico</span>
+    </div>
+    <div class="crew-member">
+      <img src="./Senpai-Social/assets/Nico_Robin_Anime_Post_Timeskip_Infobox.jpg" class="mugiwara" alt="Robin">
+      <h3>Nico Robin</h3>
+      <span>Arqueóloga</span>
+    </div>
+    <div class="crew-member">
+      <img src="./Senpai-Social/assets/Franky_Anime_Post_Timeskip_Infobox.jpg" class="mugiwara" alt="Franky">
+      <h3>Franky</h3>
+      <span>Carpinteiro</span>
+    </div>
+    <div class="crew-member">
+      <img src="./Senpai-Social/assets/Brook_Anime_Post_Timeskip_Infobox.jpg" class="mugiwara" alt="Brook">
+      <h3>Brook</h3>
+      <span>Músico</span>
+    </div>
+    <div class="crew-member">
+      <img src="./Senpai-Social/assets/Jinbe_Anime_Infobox.jpg" class="mugiwara" alt="Jinbe">
+      <h3>Jinbe</h3>
+      <span>Timonel</span>
+    </div>
   </div>
+  <button class="carousel-btn next">&#10095;</button>
 </section>
-
-  <main class="hero">
-    <img src="https://wall.alphacoders.com/big.php?i=1342304" alt="One Piece Background" class="background">
-    <div class="content">
-      <h2>Junte-se à melhor tripulação otaku dos mares!</h2>
-      <p>Compartilhe seus animes favoritos, encontre nakamas e viva aventuras como um verdadeiro pirata!</p>
-      <button onclick="entrar()">Zarpar Agora ⚓</button>
-    </div>
   </main>
-
-  <section class="crew">
-    <h3>🌟 Mugiwaras em destaque</h3>
-    <div class="cards">
-      <div class="card">Luffy - Capitão</div>
-      <div class="card">Zoro - Espadachim</div>
-      <div class="card">Sanji - Cozinheiro</div>
-      <div class="card">Nami - Navegadora</div>
-      <div class="card">Usopp - Atirador</div>
-      <div class="card">Chopper - Médico</div>
-      <div class="card">Nico Robin - Arqueóloga</div>
-      <div class="card">Frank - Construtor Naval</div>
-      <div class="card">Brook - Músico</div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Senpai-Social. Inspirado por One Piece e feito por fãs.</p>
+    <footer>
+    <p>© 2025 Senpai Social. Criado por fãs, para fãs. Imagens de One Piece pertencem a seus respectivos autores.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

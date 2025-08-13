@@ -1,108 +1,94 @@
-function entrar() {
-  alert("Você está prestes a zarpar com os Mugiwaras!");
-  // window.location.href = "cadastro.html";
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.crew-container');
+  const members = Array.from(document.querySelectorAll('.crew-member'));
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+  const nextBtn = document.querySelector('.carousel-btn.next');
 
-const characters = [
-  {
-    name: "Luffy",
-    role: "Criador de conteúdo",
-    description: "Compartilha suas aventuras e inspira outros a seguir seus sonhos!",
-    image: "https://static.wikia.nocookie.net/onepiece/images/6/6f/Luffy_Anime_Pre_Timeskip_Infobox.png"
-  },
-  {
-    name: "Zoro",
-    role: "Moderador",
-    description: "Mantém a ordem na comunidade e protege os nakamas de trolls.",
-    image: "https://static.wikia.nocookie.net/onepiece/images/5/5e/Zoro_Anime_Pre_Timeskip_Infobox.png"
-  },
-  {
-    name: "Sanji",
-    role: "Criador de conteúdos",
-    description: "Sempre mantém os conteúdos novos e atualizados.",
-    image: "https://static.wikia.nocookie.net/onepiece/images/5/5e/Zoro_Anime_Pre_Timeskip_Infobox.png"
-  },
-  {
-    name: "Nami",
-    role: "Influenciadora",
-    description: "Conecta pessoas com informações valiosas e tendências do mundo.",
-    image: "https://static.wikia.nocookie.net/onepiece/images/3/3e/Nami_Anime_Pre_Timeskip_Infobox.png"
-  },
-  {
-    name: "Usopp",
-    role: "Monitorador",
-    description: "Monitora as atividades suspeitas para que não seja espalhadas mentiras.",
-    image: "https://static.wikia.nocookie.net/onepiece/images/3/3e/Nami_Anime_Pre_Timeskip_Infobox.png"
-  },
-  {
-    name: "Chopper",
-    role: "Curador",
-    description: "Ajuda a manter todos bem cuidados.",
-    image: "https://static.wikia.nocookie.net/onepiece/images/3/3e/Nami_Anime_Pre_Timeskip_Infobox.png"
-  },
-  {
-    name: "Nicco Robbin",
-    role: "Pesquisador",
-    description: "Sempre trazendo novidades e pesquisas importantes",
-    image: "https://static.wikia.nocookie.net/onepiece/images/3/3e/Nami_Anime_Pre_Timeskip_Infobox.png"
+  let visibleCards = getVisibleCards();
+  let cardWidth = members[0].offsetWidth + 20;
+  let currentIndex = visibleCards;
+
+  // Clonar elementos
+  const clonesStart = members.slice(-visibleCards).map(el => el.cloneNode(true));
+  const clonesEnd = members.slice(0, visibleCards).map(el => el.cloneNode(true));
+  clonesStart.forEach(clone => container.prepend(clone));
+  clonesEnd.forEach(clone => container.append(clone));
+
+  function updateCarousel(animate = true) {
+    container.style.transition = animate ? 'transform 0.4s ease' : 'none';
+    container.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
   }
-];
 
-let currentIndex = 0;
+  nextBtn.addEventListener('click', () => {
+    currentIndex++;
+    updateCarousel();
+    if (currentIndex === members.length + visibleCards) {
+      setTimeout(() => {
+        currentIndex = visibleCards;
+        updateCarousel(false);
+      }, 400);
+    }
+  });
 
-function renderSlide() {
-  const slide = document.getElementById("character-slide");
-  const char = characters[currentIndex];
-  slide.innerHTML = `
-    <h3>${char.name}</h3>
-    <img src="${char.image}" alt="${char.name}" style="width:150px; border-radius:8px;">
-    <h4>${char.role}</h4>
-    <p>${char.description}</p>
-  `;
-}
+  prevBtn.addEventListener('click', () => {
+    currentIndex--;
+    updateCarousel();
+    if (currentIndex === 0) {
+      setTimeout(() => {
+        currentIndex = members.length;
+        updateCarousel(false);
+      }, 400);
+    }
+  });
 
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % characters.length;
-  renderSlide();
-}
+  // Swipe / Drag
+  let startX = 0;
+  let isDragging = false;
 
-function prevSlide() {
-  currentIndex = (currentIndex - 1 + characters.length) % characters.length;
-  renderSlide();
-}
+  container.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
 
-function renderSlide() {
-  const slide = document.getElementById("character-slide");
-  slide.classList.remove("show");
+  container.addEventListener('touchend', e => {
+    if (!isDragging) return;
+    const endX = e.changedTouches[0].clientX;
+    handleSwipe(endX - startX);
+    isDragging = false;
+  });
 
-  setTimeout(() => {
-    const char = characters[currentIndex];
-    slide.innerHTML = `
-      <h3>${char.name}</h3>
-      <img src="${char.image}" alt="${char.name}" style="width:150px; border-radius:8px;">
-      <h4>${char.role}</h4>
-      <p>${char.description}</p>
-    `;
-    slide.classList.add("show");
-  }, 100);
-}
+  container.addEventListener('mousedown', e => {
+    startX = e.clientX;
+    isDragging = true;
+  });
 
-document.addEventListener("DOMContentLoaded", renderSlide);
+  container.addEventListener('mouseup', e => {
+    if (!isDragging) return;
+    const endX = e.clientX;
+    handleSwipe(endX - startX);
+    isDragging = false;
+  });
 
-function playSound() {
-  const sound = document.getElementById("pirate-sound");
-  sound.currentTime = 0;
-  sound.play();
-}
+  function handleSwipe(deltaX) {
+    if (deltaX > 50) {
+      prevBtn.click();
+    } else if (deltaX < -50) {
+      nextBtn.click();
+    }
+  }
 
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % characters.length;
-  playSound();
-  renderSlide();
-}
+  function getVisibleCards() {
+    const width = window.innerWidth;
+    if (width < 600) return 1;
+    if (width < 900) return 2;
+    return 3;
+  }
 
-function prevSlide() {
-  currentIndex = (currentIndex - 1 + characters.length) % characters.length;
-  playSound();
-  renderSlide();
-}
+  window.addEventListener('resize', () => {
+    visibleCards = getVisibleCards();
+    cardWidth = members[0].offsetWidth + 20;
+    updateCarousel(false);
+  });
+
+  updateCarousel(false);
+});
