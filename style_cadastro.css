@@ -1,0 +1,70 @@
+body {
+  background: url('./Senpai-Social/assets/thousand_sunny.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.cadastro-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+h1{
+white-space: nowrap; /* Impede quebra de linha */
+  font-size: 18px;
+  color: #fff;
+  display: flex;
+  align-items: center; /* Alinha verticalmente */
+  gap: 20px; /* Espaço entre imagem e texto */
+}
+
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #f39c12;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e67e22;
+}
+
+.iMugiwara{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;      /* Deixa redondo */
+  object-fit: cover;       /* Preenche o espaço sem distorcer */
+  overflow: hidden;        /* Garante que nada vaze da borda */
+  border: 2px solid #fff;  /* Opcional: borda branca para destacar */
+  box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Opcional: leve sombra */
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro | Senpai Social</title>
+  <link rel="stylesheet" href="./style_cadastro.css">
+</head>
+<body>
+  <div class="cadastro-container">
+    <h1>
+        <img src="./Senpai-Social/assets/monkey-d-luffy-wide-smile-iuu9hxoxvbky3yo8.jpg" alt="Luffy" class="iMugiwara">
+         Torne-se um Nakama!</h1>
+    <form action="/cadastro" method="post">
+      <label for="nome">🧑 Nome do Nakama:</label>
+      <input type="text" placeholder="Monkey D. Luffy" id="nome" name="nome" required>
+
+      <label for="email">📧 Den Den Mushi (Email):</label>
+      <input type="email" placeholder="luffy@domain.com" id="email" name="email" required>
+
+      <label for="senha">🔒 Palavra Secreta:</label>
+      <input type="password" placeholder="S3nH@" id="senha" name="senha" required>
+
+      <label for="fruta">🍇 Akuma no Mi favorita:</label>
+      <select id="fruta" name="fruta">
+        <option>Gomu Gomu no Mi</option>
+        <option>Mera Mera no Mi</option>
+        <option>Hie Hie no Mi</option>
+        <option>Yami Yami no Mi</option>
+        <option>Gura Gura no Mi</option>
+        <option>Ope Ope no Mi</option>
+        <option>Nikyu Nikyu no Mi</option>
+        <option>Uo Uo no Mi (Seiryu)</option>
+        <option>Hana Hana no Mi</option>
+        <option>Yomi Yomi no Mi</option>
+        <option>Prefiro poder nadar!</option>
+      </select>
+
+      <button type="submit">🚢 Embarcar na Tripulação</button>
+    </form>
+  </div>
+</body>
+</html>
