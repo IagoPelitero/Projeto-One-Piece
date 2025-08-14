@@ -25,7 +25,7 @@ white-space: nowrap; /* Impede quebra de linha */
   color: #fff;
   display: flex;
   align-items: center; /* Alinha verticalmente */
-  gap: 20px; /* Espaço entre imagem e texto */
+  gap: 50px; /* Espaço entre imagem e texto */
 }
 
 form label {
