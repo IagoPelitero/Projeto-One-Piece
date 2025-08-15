@@ -22,3 +22,13 @@ body {
   text-align: center;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
 }
+
+.pirate-avatar{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;      /* Deixa redondo */
+  object-fit: cover;       /* Preenche o espaço sem distorcer */
+  overflow: hidden;        /* Garante que nada vaze da borda */
+  border: 2px solid #fff;  /* Opcional: borda branca para destacar */
+  box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Opcional: leve sombra */
+}
