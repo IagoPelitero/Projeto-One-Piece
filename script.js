@@ -92,3 +92,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateCarousel(false);
 });
+
+  // Recupera os dados salvos no cadastro
+  const nome = localStorage.getItem("pirateName") || "Pirata Desconhecido";
+  const fruta = localStorage.getItem("akumaNoMi") || "Prefiro poder nadar!";
+
+  // Exibe os dados no cartaz
+  document.getElementById("pirateName").textContent = nome;
+  document.getElementById("pirateTitle").textContent = `Portador da ${fruta}`;
+
+  // Tabela de recompensas por Akuma no Mi
+  const frutas = {
+    "Gomu Gomu no Mi": 1500000000,
+    "Mera Mera no Mi": 1800000000,
+    "Hie Hie no Mi": 1600000000,
+    "Yami Yami no Mi": 2500000000,
+    "Gura Gura no Mi": 2200000000,
+    "Ope Ope no Mi": 2000000000,
+    "Nikyu Nikyu no Mi": 1700000000,
+    "Uo Uo no Mi (Seiryu)": 3000000000,
+    "Hana Hana no Mi": 1400000000,
+    "Yomi Yomi no Mi": 1300000000,
+    "Prefiro poder nadar!": 500000
+  };
+
+  // Função para detectar a Vontade do D.
+  function temVontadeDoD(nome) {
+    return /(^|\s)[Dd](\.|\s|$)/.test(nome);
+  }
+
+  // Define a recompensa base
+  let bounty = frutas[fruta] || 1000000;
+
+  // Aplica bônus se tiver "D." no nome
+  if (temVontadeDoD(nome)) {
+    bounty *= 2;
+  }
+
+  // Easter egg secreto para nomes lendários
+  if (nome.toLowerCase().includes("roger") || nome.toLowerCase().includes("imu")) {
+    document.getElementById("pirateTitle").textContent = "Este nome não deveria existir...";
+    bounty = 999999999999;
+  }
+
+  // Animação de contagem cinematográfica
+  let current = 0;
+  let display = document.getElementById("bountyAmount");
+
+  let interval = setInterval(() => {
+    current += Math.ceil(bounty / 100);
+    if (current >= bounty) {
+      current = bounty;
+      clearInterval(interval);
+    }
+    display.textContent = current.toLocaleString();
+  }, 50);
+
+  // Botão de compartilhamento (placeholder)
+  function compartilhar() {
+    alert("Compartilhe seu cartaz com a tripulação! (Função em construção)");
+  }
+
+  const coresPorFruta = {
+  "Mera Mera no Mi": "#FF4500",
+  "Hie Hie no Mi": "#00BFFF",
+  "Yami Yami no Mi": "#2F4F4F",
+  "Gomu Gomu no Mi": "#FFD700",
+  "Prefiro poder nadar!": "#228B22"
+};
+
+document.querySelector(".bounty-poster").style.backgroundColor = coresPorFruta[fruta] || "#8B4513";

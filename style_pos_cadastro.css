@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  background: radial-gradient(circle, #000 0%, #222 100%);
+  font-family: 'Pirata One', cursive;
+  color: #fff;
+}
+
+.bounty-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bounty-poster {
+  background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(139, 69, 19, 0.7)), 
+              url('./assets/wanted_paper.jpg') no-repeat center;
+  background-size: cover;
+  width: 400px;
+  height: 600px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}

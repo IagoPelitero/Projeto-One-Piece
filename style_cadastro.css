@@ -3,20 +3,23 @@ body {
   background-size: cover;
   font-family: 'Trebuchet MS', sans-serif;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  font-family: 'Trebuchet MS', sans-serif;
+  margin: 0;
 }
 
 .cadastro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 30px;
   border-radius: 15px;
   width: 350px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   text-align: center;
+  margin: auto;
+  margin-top: 60px;
 }
 
 h1{
@@ -25,7 +28,7 @@ white-space: nowrap; /* Impede quebra de linha */
   color: #fff;
   display: flex;
   align-items: center; /* Alinha verticalmente */
-  gap: 50px; /* Espaço entre imagem e texto */
+  gap: 40px; /* Espaço entre imagem e texto */
 }
 
 form label {
@@ -67,4 +70,32 @@ button:hover {
   overflow: hidden;        /* Garante que nada vaze da borda */
   border: 2px solid #fff;  /* Opcional: borda branca para destacar */
   box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Opcional: leve sombra */
+}
+
+.top-header {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.home-link {
+  text-decoration: none;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage {
+  width: 50px;
+  height: auto;
+}
+
+.home-content h2 {
+  font-size: 14px;
+  color: #000;
+  margin-top: 5px;
 }

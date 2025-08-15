@@ -6,11 +6,22 @@
   <link rel="stylesheet" href="./style_cadastro.css">
 </head>
 <body>
-  <div class="cadastro-container">
+  <header class="top-header">
+    <a href="./index.html" class="home-link">
+      <div class="home-content">
+        <img src="./Senpai-Social/assets/thousand_sunny.jpg" alt="Thousand Sunny" class="homepage">
+        <h2>Voltar!</h2>
+      </div>
+    </a>
+  </header>
+
+  <div class="cadastro-container">   
     <h1>
-        <img src="./Senpai-Social/assets/monkey-d-luffy-wide-smile-iuu9hxoxvbky3yo8.jpg" alt="Luffy" class="iMugiwara">
-         Torne-se um Nakama!</h1>
-    <form action="/cadastro" method="post">
+      <img src="./Senpai-Social/assets/monkey-d-luffy-wide-smile-iuu9hxoxvbky3yo8.jpg" alt="Luffy" class="iMugiwara">
+      Torne-se um Nakama!
+    </h1>
+
+    <form id="cadastroForm">
       <label for="nome">🧑 Nome do Nakama:</label>
       <input type="text" placeholder="Monkey D. Luffy" id="nome" name="nome" required>
 
@@ -35,8 +46,24 @@
         <option>Prefiro poder nadar!</option>
       </select>
 
-      <button type="submit">🚢 Embarcar na Tripulação</button>
+      <button type="submit">Entrar na tripulação</button>
     </form>
   </div>
+
+  <script>
+    document.getElementById("cadastroForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const fruta = document.getElementById("fruta").value;
+
+      // Salva os dados no localStorage
+      localStorage.setItem("pirateName", nome);
+      localStorage.setItem("akumaNoMi", fruta);
+
+      // Redireciona para a página de recompensa
+      window.location.href = "recompensa.html";
+    });
+  </script>
 </body>
 </html>
